@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Title} from "@angular/platform-browser";
 // import * as mdb from 'mdb-ui-kit'; // lib
 
 @Component({
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private titleService: Title) {
 
-  title = 'training-one-angular-library-management';
+    this.titleService.setTitle("LiMa");
+  }
 }

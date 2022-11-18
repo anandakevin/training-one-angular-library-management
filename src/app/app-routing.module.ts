@@ -23,13 +23,12 @@ const routerOptions: ExtraOptions = {
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LoginComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home', component: DashboardComponent, data: {
       permission: {
         only: ['admin', 'user'],
-        redirectTo: '/login'
+        // redirectTo: ''
       }
     }
   },
@@ -37,12 +36,12 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {
     path: 'admin',
-    data: {
-      permission: {
-        only: ['admin'],
-        redirectTo: '/login'
-      }
-    },
+    // data: {
+      // permission: {
+      //   only: ['admin'],
+      //   redirectTo: ''
+      // }
+    // },
     children: [{
       path: 'transaction', component: TransactionComponent, children: [
         {path: 'create', component: CreateTransactionComponent}
@@ -61,7 +60,7 @@ const routes: Routes = [
 export class AppRoutingModule {
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle("LiMa");
+
 
   }
 }
