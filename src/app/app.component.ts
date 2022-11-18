@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import * as mdb from 'mdb-ui-kit'; // lib
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'training-one-angular-library-management';
 }

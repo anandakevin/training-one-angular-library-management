@@ -1,6 +1,6 @@
 <div class="col-md-4 offset-4  shadow-lg bg-danger rounded">
   <div class="card-body text-white bg-danger ">
-    <img src=".\assets\icons\user-128.png" class="img-fluid rounded mx-auto d-block" alt="...">
+    <img src=".\assets\icons\user-128.png" class="img-fluid rounded mx-auto d-block" style="height: 50px" alt="...">
 
     <div class="card-header header-center">
       <h3 class="h3 text-center">User Login</h3>
@@ -9,8 +9,8 @@
     <form #userForm="ngForm" (ngSubmit)="submit(userForm)">
       <div class="form-group">
         <label for="un"><b>User Id</b></label>
-        <input type="email" name="username" id="u" class="form-control" placeholder="example@gmail.com"
-               #uname="ngModel" [(ngModel)]="user.username" minlength="5" required>
+        <input type="text" name="username" id="un" class="form-control" placeholder="username"
+               #uname="ngModel" ngModel required >
         <span class="alert alert-danger" role="alert" *ngIf="uname && uname.touched
                     && uname.invalid">
                     *Enter an email!!!!.
@@ -18,8 +18,8 @@
       </div>
       <div class="form-group">
         <label for="ps"><b>Password</b></label>
-        <input type="password" name="password" id="p" class="form-control" placeholder="**************"
-               #pass="ngModel" [(ngModel)]="user.password" minlength="8" required>
+        <input type="password" name="password" id="ps" class="form-control" placeholder="**************"
+               #pass="ngModel" required ngModel>
         <span class="alert alert-danger " role="alert" *ngIf="pass && pass.touched
                     && pass.invalid">
                     *Enter a password!!!!.
