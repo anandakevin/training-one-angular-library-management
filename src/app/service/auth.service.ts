@@ -27,7 +27,6 @@ export class AuthService{
 
       localStorage.setItem("username", 'user');
       localStorage.setItem("role", 'user');
-      localStorage.setItem("email", 'user@user.com');
 
       const permission = [];
       permission.push('user');
@@ -37,7 +36,6 @@ export class AuthService{
     } else if ('admin' == data.username && 'admin' == data.password) {
       localStorage.setItem("username", 'admin');
       localStorage.setItem("role", 'admin');
-      localStorage.setItem("email", 'admin@admin.com');
 
       const permission = [];
       permission.push('admin');
@@ -57,7 +55,6 @@ export class AuthService{
           //local storage
           localStorage.setItem("username", user.username);
           localStorage.setItem("role", user.role);
-          localStorage.setItem("email", user.email);
           const permission = [];
           permission.push(user.role);
           this.permissionService.loadPermissions(permission);

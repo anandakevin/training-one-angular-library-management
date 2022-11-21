@@ -29,13 +29,13 @@ export class DashboardComponent implements OnInit {
     this.bookService.getAllBook(this.searchQuery)
     .subscribe(data =>{ JSON.stringify(data)
     //.subscribe(data =>{ JSON.stringify(Object(data)["output_schema"])
-      console.log(JSON.stringify(Object(data)["output_schema"]));
+    //   console.log(JSON.stringify(Object(data)["output_schema"]));
       //this.books = Object(data)["output_schema"];
       this.books = Object(data)["output_schema"];
       console.log(this.books.length);
     });
-  
-    
+
+
   }
 
 }

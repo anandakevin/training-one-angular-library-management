@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
 
   user: User;
   public users: User[];
-  username;
-  temp:apiResponse;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -34,8 +32,8 @@ export class LoginComponent implements OnInit {
   get() {
     this.userService.getAllUser()
       .subscribe(data => {
-        this.temp = <apiResponse>data;
-        this.users = <User[]>this.temp.output_schema;
+        let temp = <apiResponse>data;
+        this.users = <User[]>temp.output_schema;
         console.log(this.users);
       });
   }
@@ -46,19 +44,18 @@ export class LoginComponent implements OnInit {
 
   submit(form: NgForm) {
     this.user = form.value;
-
+    // let username:string;
     // if ('user' == this.user.username && 'user' == this.user.password) {
     //
     //   console.log(this.user.username);
     //
     //   localStorage.setItem("username", 'user');
     //   localStorage.setItem("role", 'user');
-    //   localStorage.setItem("email", 'user@user.com');
     //
     //   const permission = [];
     //   permission.push('user');
     //   this.permissionService.loadPermissions(permission);
-    //   this.sharedService.updateNavbar();
+    //   this.sharedService.updateStatus();
     //   // this.router.navigate(['']).then(() => {window.location.reload()});
     //   this.router.navigate(['']);
     //
@@ -67,12 +64,11 @@ export class LoginComponent implements OnInit {
     // } else if ('admin' == this.user.username && 'admin' == this.user.password) {
     //   localStorage.setItem("username", 'admin');
     //   localStorage.setItem("role", 'admin');
-    //   localStorage.setItem("email", 'admin@admin.com');
     //
     //   const permission = [];
     //   permission.push('admin');
     //   this.permissionService.loadPermissions(permission);
-    //   this.sharedService.updateNavbar();
+    //   this.sharedService.updateStatus();
     //   // this.router.navigate(['']).then(() => {window.location.reload()});
     //   this.router.navigate(['']);
     //   // this.router.navigateByUrl('/admin/transaction', { skipLocationChange: true }).then(() => {
@@ -94,11 +90,10 @@ export class LoginComponent implements OnInit {
           //local storage
           localStorage.setItem("username", user.username);
           localStorage.setItem("role", user.role);
-          localStorage.setItem("email", user.email);
           const permission = [];
           permission.push(user.role);
           this.permissionService.loadPermissions(permission);
-          this.sharedService.updateNavbar();
+          this.sharedService.updateStatus();
 
           this.router.navigate([''])
           // this.router.navigate(['']).then(() => {window.location.reload()});

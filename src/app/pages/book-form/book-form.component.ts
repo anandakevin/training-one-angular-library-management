@@ -59,8 +59,10 @@ export class BookFormComponent implements OnInit {
         this.goBack();
       });
     } else if (this.activity == 'Edit') {
+      let dataDB = data as Book;
+      dataDB.bookId = this.paramId;
       this.bookService
-        .updateBook(data as Book, this.paramId)
+        .updateBook(data as Book)
         .subscribe((book) => {
           this.goBack();
         });

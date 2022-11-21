@@ -11,8 +11,8 @@ import {SharedService} from '../../service/shared.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isLogin;
-  role;
+  isLogin: boolean;
+  role: string;
 
   constructor(
     private router: Router,
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.sharedService.updateNavbar();
+    this.sharedService.updateStatus();
     this.router.navigate(['/login']);
     // this.updateStatus();
   }

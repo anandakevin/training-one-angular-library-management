@@ -16,7 +16,7 @@ export class SharedService {
 
   constructor() {}
 
-  // updateNavbar(): { isLogin: boolean, role: string } {
+  // updateStatus(): { isLogin: boolean, role: string } {
   //   if (localStorage.getItem('role') === null) {
   //     return { isLogin: false, role: 'public' };
   //   } else {
@@ -28,7 +28,7 @@ export class SharedService {
      * Use to change user name
      * @data type: string
      */
-  updateNavbar() {
+  updateStatus() {
     let data: TNav;
     if (localStorage.getItem('role') === null) {
       data = { isLogin: false, role: 'public' };
