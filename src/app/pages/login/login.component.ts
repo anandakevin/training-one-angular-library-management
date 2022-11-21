@@ -8,6 +8,7 @@ import {HeaderComponent} from "../../layout/header/header.component";
 import {Observable, Subject} from "rxjs";
 import {AuthService} from "../../service/auth.service";
 import {SharedService} from "../../service/shared.service";
+import {apiResponse} from "../../interface/apiResponse";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   user: User;
   public users: User[];
   username;
+  temp:apiResponse;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -31,7 +33,11 @@ export class LoginComponent implements OnInit {
 
   get() {
     this.userService.getAllUser()
-      .subscribe(data => this.users = <User[]>data);
+      .subscribe(data => {
+        this.temp = <apiResponse>data;
+        this.users = <User[]>this.temp.output_schema;
+        console.log(this.users);
+      });
   }
 
   ngOnInit(): void {
