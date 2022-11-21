@@ -16,22 +16,24 @@ export class BookCategoryService {
   }
 
   getAllBookCategory() {
-    return this.http.get(this.appConfig.apiUrl + this.path + '/get-all-' + this.path);
+    console.log('GET ALL BOOK CATEGORY : '+this.appConfig.apiUrl +'/'+ this.path + '/get-all-' + this.path);
+    return this.http.get(this.appConfig.apiUrl +'/'+ this.path + '/get-all-' + this.path);
   }
 
   getBookCategoryById(id: number) {
-    return this.http.get(this.appConfig.apiUrl + this.path + '/get-' + this.path + '-detail/' + id);
+    console.log('GET BOOK CATEGORY BY ID  : '+this.appConfig.apiUrl +'/'+ this.path + '/get-' + this.path + '-detail/' + id);
+    return this.http.get(this.appConfig.apiUrl +'/'+ this.path + '/get-' + this.path + '-detail/' + id);
   }
 
   addBookCategory(data) {
-    return this.http.post(this.appConfig.apiUrl + this.path + '/add-' + this.path, data);
+    return this.http.post(this.appConfig.apiUrl +'/'+ this.path + '/add-' + this.path, data);
   }
 
   updateBookCategory(data) {
-    return this.http.put(this.appConfig.apiUrl + this.path + '/update-' + this.path, data);
+    return this.http.put(this.appConfig.apiUrl +'/'+ this.path + '/update-' + this.path, data);
   }
 
   deleteBookCategory(id: number) {
-    return this.http.delete(this.appConfig.apiUrl + this.path + '/delete-' + this.path + '/' + id);
+    return this.http.delete(this.appConfig.apiUrl +'/'+ this.path + '/delete-' + this.path + '/' + id);
   }
 }

@@ -12,6 +12,7 @@ import {UsersPageComponent} from "./pages/manage/users-page/users-page.component
 import {ManageComponent} from "./pages/manage/manage.component";
 import {Title} from "@angular/platform-browser";
 import {SharedService} from "./service/shared.service";
+import { BookFormComponent } from './pages/book-form/book-form.component';
 
 const sharedService: SharedService = new SharedService();
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     }
   },
   {path: 'book/:id', component: BookDetailComponent},
+  {path: 'home/book/add', component: BookFormComponent},
   {path: 'profile', component: ProfileComponent},
   {
     path: 'admin',
@@ -48,6 +50,8 @@ const routes: Routes = [
       ]
     },
       {path: 'manage', component: ManageComponent},
+      {path: 'manage/categories-page', component: CategoriesPageComponent},
+      {path: 'manage/users-page', component: UsersPageComponent},
     ]
   },
   {path: 'error', component: ErrorPageComponent},

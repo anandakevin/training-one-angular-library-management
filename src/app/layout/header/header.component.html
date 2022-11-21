@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">LiMa</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -14,15 +14,26 @@
         <li class="nav-item" *ngIf="role=='admin'">
           <a class="nav-link" routerLink="/admin/transaction">Transaction</a>
         </li>
-        <li class="nav-item" *ngIf="role=='admin'">
-          <a class="nav-link" routerLink="/admin/manage">Manage</a>
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="btn btn-default dropdown-toggle" type="button" id="navbarDropdownMenuLink"
+                      data-bs-toggle="dropdown">Manage
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/admin/manage/categories-page">Book Category Management</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" routerLink="/admin/manage/users-page">User Management</a>
+          </div>
         </li>
+
+        <!-- <li class="nav-item" *ngIf="role=='admin'">
+          <a class="nav-link" routerLink="/admin/manage">Manage</a>
+        </li> -->
         <li class="nav-item dropdown" *ngIf="isLogin; else loggedOut">
-          <!--          <a class="btn btn-default dropdown-toggle" type="button" id="navbarDropdownMenuLink"-->
-          <!--             data-bs-toggle="dropdown">-->
+          <a class="btn btn-default dropdown-toggle" type="button" id="navbarDropdownMenuLink"
+                      data-bs-toggle="dropdown">
           <img class="btn img-fluid dropdown-toogle" id="navbarDropdownMenuLink" src=".\assets\icons\user-128.png"
                data-bs-toggle="dropdown" alt="...">
-          <!--          </a>-->
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/profile">Profile</a>
             <hr class="dropdown-divider">

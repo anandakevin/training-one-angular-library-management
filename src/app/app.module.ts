@@ -40,10 +40,11 @@ import {MdbValidationModule} from 'mdb-angular-ui-kit/validation';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedService} from "./service/shared.service";
 import {NgxPermissionsModule, NgxPermissionsService} from "ngx-permissions";
+import { BookFormComponent } from './pages/book-form/book-form.component';
 
 @NgModule({
   declarations: [AppComponent,
-    HeaderComponent, FooterComponent, BookCardSmallComponent, BookCardLongHorizontalComponent, UsersPageComponent, CategoriesPageComponent, ManageComponent, ProfileComponent, DashboardComponent, TransactionComponent, TransactionCardComponent, CreateTransactionComponent, SimilarBooksComponent, BookDetailComponent, ConfirmPopupComponent, LoginComponent, ErrorPageComponent],
+    HeaderComponent, FooterComponent, BookCardSmallComponent, BookCardLongHorizontalComponent, UsersPageComponent, CategoriesPageComponent, ManageComponent, ProfileComponent, DashboardComponent, TransactionComponent, TransactionCardComponent, CreateTransactionComponent, SimilarBooksComponent, BookDetailComponent, ConfirmPopupComponent, LoginComponent, ErrorPageComponent, BookFormComponent],
   imports: [BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule, MdbAccordionModule, MdbCarouselModule, MdbCheckboxModule, MdbCollapseModule, MdbDropdownModule, MdbFormsModule, MdbModalModule, MdbPopoverModule, MdbRadioModule, MdbRangeModule, MdbRippleModule, MdbScrollspyModule, MdbTabsModule, MdbTooltipModule, MdbValidationModule, BrowserAnimationsModule, NgxPermissionsModule.forRoot()],
   providers: [NgxPermissionsService],

@@ -1,1 +1,12 @@
-<p>book-detail works!</p>
+<div class="card" style="width: 18rem;">
+    <div class="card-body" *ngIf="book; else second">
+        <h5 class="card-title">{{ book.bookName| uppercase }}</h5>
+        <p class="card-text">{{ book.bookAuthor }}</p>
+        <p class="card-text">{{ book.bookCategoryId }}</p>
+        <p class="card-text">{{ book.bookDescription }}</p>
+        <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+        <button type="button" class="btn btn-warning" routerLink="/edit/{{ book.bookId }}">Edit</button>
+        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+  </div>
+</div>
+<ng-template #second>Empty data</ng-template>
