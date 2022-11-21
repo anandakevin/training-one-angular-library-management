@@ -18,22 +18,22 @@ export class UserService {
   }
 
   getAllUser(){
-    return this.http.get(this.appConfig.apiUrl + this.path + '/get-all-' + this.path);
+    return this.http.get(this.appConfig.apiUrl + '/' + this.path + '/get-all-' + this.path);
   }
 
   getUserById(id: number) {
-    return this.http.get(this.appConfig.apiUrl + this.path + '/get-' + this.path + '-detail/' + id);
+    return this.http.get(this.appConfig.apiUrl + '/' + this.path + '/get-' + this.path + '-detail/' + id);
   }
 
   addUser(data) {
-    return this.http.post(this.appConfig.apiUrl + this.path + '/add-' + this.path, data);
+    return this.http.post(this.appConfig.apiUrl + '/' + this.path + '/add-' + this.path, data);
   }
 
   updateUser(data) {
-    return this.http.put(this.appConfig.apiUrl + this.path + '/update-' + this.path, data);
+    return this.http.put(this.appConfig.apiUrl + '/' + this.path + '/update-' + this.path, data);
   }
 
   deleteUser(id: number) {
-    return this.http.delete(this.appConfig.apiUrl + this.path + '/delete-' + this.path + '/' + id);
+    return this.http.delete(this.appConfig.apiUrl + '/' + this.path + '/delete-' + this.path + '/' + id);
   }
 }

@@ -28,7 +28,7 @@ const routes: Routes = [
     path: 'home', component: DashboardComponent, data: {
       permission: {
         only: ['admin', 'user'],
-        // redirectTo: ''
+        redirectTo: '/login'
       }
     }
   },

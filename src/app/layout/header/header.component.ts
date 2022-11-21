@@ -1,48 +1,54 @@
-import {Component, OnInit} from '@angular/core';
-import {SharedService} from "../../service/shared.service";
-import {Router} from "@angular/router";
-import {NgxPermissionsService} from "ngx-permissions";
-import {AuthService} from "../../service/auth.service";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgxPermissionsService} from 'ngx-permissions';
+
+import {AuthService} from '../../service/auth.service';
+import {SharedService} from '../../service/shared.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   isLogin;
   role;
+
   constructor(
-    // private sharedService: SharedService,
     private router: Router,
     private permissionService: NgxPermissionsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private sharedService: SharedService
   ) {
+    this.sharedService.execChange.subscribe(val => {
+      console.log('test val', val)
+      this.updateStatus(val.isLogin, val.role);
+    })
   }
+
 
   ngOnInit(): void {
-    console.log('role: ' + localStorage.getItem("role"));
-    // this.sharedService.role = 'admin';
-    const navStatus =
-    this.updateNavbar();
-  }
 
-  updateNavbar() {
-    if(localStorage.getItem('role') === null) {
-      this.isLogin = false;
-      this.role = "public";
-    } else {
-      this.isLogin = true;
-      this.role = localStorage.getItem("role");
-
-    }
+    // console.log('role: ' + localStorage.getItem('role'));
+    // this.updateStatus();
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['']);
-    this.updateNavbar();
+    this.sharedService.updateNavbar();
+    this.router.navigate(['/login']);
+    // this.updateStatus();
   }
 
+  @HostListener('window:storage')
+  onStorageChange() {
+    console.log('change...');
+    // console.log(localStorage.getItem('isLogin'));
+    console.log(localStorage.getItem('role'));
+  }
 
+  updateStatus(isLogin: boolean, role: string) {
+    this.isLogin = isLogin;
+    this.role = role;
+  }
 }
